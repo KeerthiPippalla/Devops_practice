@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Registration</title>
+    <link rel="stylesheet" href="">
+    <script>
+        function ValidateForm(event) {
+            const name = document.getElementById("name").value.trim();
+            const gender = document.querySelector("input[name=gender]:checked");
+            const year = document.getElementById("year").value;
+            let check = true;
+            let error = '';
+            if (name == '') {
+                check = false;
+                error += 'Enter name\n';
+            }
+            if (!gender) {
+                check = false;
+                error += 'Enter gender\n';
+            }
+            if (year == '') {
+                check = false;
+                error += 'Enter year\n';
+            }
+            if (check == false) {
+                alert(error);
+                return false;
+            }
+            document.querySelector("form").submit();
+        }
+    </script>
+</head>
+
+<body>
+    <form onsubmit="ValidateForm(event)">
+        <label for="name">Name</label>
+        <input id="name" name="name" type="text">
+        <label for="gender">Gender</label>
+        <label><input value="male" name="gender" type="radio">Male</label>
+        <label><input value="male" name="gender" type="radio">Male</label>
+        <label for="year">Year</label>
+        <select id="year" name="year">
+            <option value="">select</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+        </select>
+        <button type="submit">Register</button>
+    </form>
+</body>
+
+</html>
